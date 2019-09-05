@@ -1,6 +1,8 @@
-C:\UCELL\verter\src\main\java\ru\billing\draemu\DSNamespaceContext.java
-C:\UCELL\verter\src\main\java\ru\billing\draemu\XmlSignatureHandler.java
-C:\UCELL\verter\src\main\java\ru\billing\draemu\CreateSignatureFile.java
-C:\UCELL\verter\src\main\java\ru\billing\draemu\SignValidate.java
-C:\UCELL\verter\src\main\java\ru\billing\draemu\VerterMain.java
-C:\UCELL\verter\src\main\java\ru\billing\draemu\CreateSignature.java
+C:\UCELL\togithub\src\main\java\ru\billing\verter\VerterMain.java
+C:\UCELL\togithub\src\main\java\ru\billing\verter\HelloHandler.java
+C:\UCELL\togithub\src\main\java\ru\billing\verter\CreateSignatureFile.java
+C:\UCELL\togithub\src\main\java\ru\billing\verter\CreateSignature.java
+C:\UCELL\togithub\src\main\java\ru\billing\verter\SignValidate.java
+C:\UCELL\togithub\src\main\java\ru\billing\verter\DSNamespaceContext.java
+C:\UCELL\togithub\src\main\java\ru\billing\verter\VerterHttpClient.java
+C:\UCELL\togithub\src\main\java\ru\billing\verter\XmlSignatureHandler.java

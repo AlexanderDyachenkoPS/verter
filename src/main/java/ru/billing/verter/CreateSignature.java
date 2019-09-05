@@ -1,10 +1,9 @@
-package ru.billing.draemu;
+package ru.billing.verter;
 
 import java.io.*;
 import java.security.Key;
 import java.security.KeyStore;
 import java.security.cert.X509Certificate;
-import javax.naming.spi.Resolver;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -19,7 +18,6 @@ import org.apache.xml.security.utils.IdResolver;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
 
 public class CreateSignature {
 

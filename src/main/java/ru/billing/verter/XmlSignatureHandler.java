@@ -1,16 +1,14 @@
-package ru.billing.draemu;
+package ru.billing.verter;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.xml.crypto.MarshalException;
-import javax.xml.crypto.XMLStructure;
 import javax.xml.crypto.dsig.CanonicalizationMethod;
 import javax.xml.crypto.dsig.DigestMethod;
 import javax.xml.crypto.dsig.Reference;
@@ -21,14 +19,12 @@ import javax.xml.crypto.dsig.XMLSignature;
 import javax.xml.crypto.dsig.XMLSignatureException;
 import javax.xml.crypto.dsig.XMLSignatureFactory;
 import javax.xml.crypto.dsig.dom.DOMSignContext;
-import javax.xml.crypto.dsig.dom.DOMValidateContext;
 import javax.xml.crypto.dsig.keyinfo.KeyInfo;
 import javax.xml.crypto.dsig.keyinfo.KeyInfoFactory;
 import javax.xml.crypto.dsig.keyinfo.KeyValue;
 import javax.xml.crypto.dsig.keyinfo.X509Data;
 import javax.xml.crypto.dsig.spec.C14NMethodParameterSpec;
 import javax.xml.crypto.dsig.spec.TransformParameterSpec;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
@@ -38,6 +34,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.xml.security.Init;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Element;
@@ -61,14 +58,6 @@ import org.apache.xml.security.utils.IdResolver;
 
 public class XmlSignatureHandler {
 
-    private static final String PRIVATE_KEY_ALIAS = "nexign.provGW";
-    private static final String PRIVATE_KEY_PASS = "provgw";
-    private static final String KEY_STORE_PASS = "provgw";
-    private static final String KEY_STORE_TYPE = "JKS";
-    String iFile;
-    String oFile;
-    String cFile;
-
     private final DocumentBuilderFactory builderFactory;
     private final TransformerFactory transformerFactory;
     private final XMLSignatureFactory signatureFactory;
@@ -77,30 +66,23 @@ public class XmlSignatureHandler {
     private final CanonicalizationMethod canonicalizationMethod;
     private final SignatureMethod signatureMethod;
     private final KeyInfoFactory keyInfoFactory;
-   // public final X509CertificateWithKey certificateWithKey = new X509CertificateWithKey();
-   /* final KeyStore keyStore = loadKeyStore(new File(cFile));
-    final Key privateKey = keyStore.getKey(PRIVATE_KEY_ALIAS, PRIVATE_KEY_PASS.toCharArray());
-    final X509Certificate cert = (X509Certificate)keyStore.getCertificate(PRIVATE_KEY_ALIAS);
-    final PublicKey publicKey = cert.getPublicKey();*/
+    private VerterParameters verterParameters;
 
-    KeyStore keyStore;
-    Key privateKey ;
-    X509Certificate cert ;
-    PublicKey publicKey;
+    //KeyStore keyStore;
+    //Key privateKey ;
+    //X509Certificate cert ;
+    //PublicKey publicKey;
 
 
     public Document document;
     public String referenceUri = "#Body";
 
-    public XmlSignatureHandler(String iFile,  String cFile, String oFile) throws Exception {
-        this.iFile=iFile;
-        this.cFile=cFile;
-        this.oFile=oFile;
+    public XmlSignatureHandler(VerterParameters iverterParameters) throws Exception {
 
-         keyStore = loadKeyStore(new File(cFile));
-         privateKey = keyStore.getKey(PRIVATE_KEY_ALIAS, PRIVATE_KEY_PASS.toCharArray());
-         cert = (X509Certificate)keyStore.getCertificate(PRIVATE_KEY_ALIAS);
-         publicKey = cert.getPublicKey();
+        this.verterParameters=iverterParameters;
+
+
+        Init.init();
 
         this.builderFactory = DocumentBuilderFactory.newInstance();
         this.builderFactory.setNamespaceAware(true);
@@ -128,17 +110,6 @@ public class XmlSignatureHandler {
 
     }
 
-    private static KeyStore loadKeyStore(File privateKeyFile) throws Exception {
-        final InputStream fileInputStream = new FileInputStream(privateKeyFile);
-        try {
-            final KeyStore keyStore = KeyStore.getInstance(KEY_STORE_TYPE);
-            keyStore.load(fileInputStream, KEY_STORE_PASS.toCharArray());
-            return keyStore;
-        }
-        finally {
-            IOUtils.closeQuietly(fileInputStream);
-        }
-    }
 
     public synchronized void sign()
             throws MarshalException,
@@ -174,11 +145,11 @@ public class XmlSignatureHandler {
 
         // Create the KeyInfo containing the X509Data.
         X509Data xd = this.keyInfoFactory.newX509Data(
-                Collections.singletonList(this.cert));
+                Collections.singletonList(this.verterParameters.getCERTIFICATE()));
 
 
 
-        KeyValue keyValue = this.keyInfoFactory.newKeyValue(publicKey);
+        KeyValue keyValue = this.keyInfoFactory.newKeyValue(this.verterParameters.getPUBLICKEY());
 
         List x509list = new ArrayList();
 
@@ -201,7 +172,7 @@ public class XmlSignatureHandler {
                 document.getDocumentElement());
 */
         DOMSignContext signingContext = new DOMSignContext(
-                this.privateKey,
+                this.verterParameters.getPRIVATEKEY(),
                 header);
         //signingContext.putNamespacePrefix(XMLSignature.XMLNS,"ds");
         signingContext.setDefaultNamespacePrefix("ds");
@@ -261,6 +232,16 @@ public class XmlSignatureHandler {
         final OutputStream fileOutputStream = new FileOutputStream(fileName);
         try {
             write(fileOutputStream);
+        } catch (TransformerException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public  void outputHTTP(ByteArrayOutputStream iByteArrayOutputStream) throws IOException {
+    //    final OutputStream fileOutputStream = response.getOutputStream();
+        try {
+            write(iByteArrayOutputStream);
         } catch (TransformerException e) {
             e.printStackTrace();
         }

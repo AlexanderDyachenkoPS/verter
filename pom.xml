@@ -17,7 +17,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>ru.billing.draemu.VerterMain</mainClass>
+                            <mainClass>ru.billing.verter.VerterMain</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -35,7 +35,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>ru.billing.draemu.VerterMain</mainClass>
+                            <mainClass>ru.billing.verter.VerterMain</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -55,7 +55,26 @@
 
     <dependencies>
 
+        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.9</version>
+        </dependency>
 
+        <!--Jetty  dependencies start here-->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>9.2.11.v20150529</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-servlet</artifactId>
+            <version>9.2.11.v20150529</version>
+        </dependency>
+        <!--Jetty  dependencies end here-->
 
         <!-- https://mvnrepository.com/artifact/jgrapht/jgrapht -->
         <dependency>

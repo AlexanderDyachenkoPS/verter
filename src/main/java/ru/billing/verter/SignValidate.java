@@ -1,4 +1,4 @@
-package ru.billing.draemu;
+package ru.billing.verter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -13,6 +13,7 @@ import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.xml.security.Init;
 import org.apache.xml.security.exceptions.XMLSecurityException;
 import org.apache.xml.security.keys.KeyInfo;
 import org.apache.xml.security.signature.XMLSignature;
@@ -21,10 +22,7 @@ import org.apache.xml.security.utils.IdResolver;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
-import static javax.swing.text.html.CSS.getAttribute;
 
 public class SignValidate {
 
@@ -40,13 +38,14 @@ public class SignValidate {
     //	  to be validated.
     //
 
-    public  void valSig (String fileName) {
+    public  void valSig (InputStream is) {
+        Init.init();
         javax.xml.parsers.DocumentBuilderFactory dbf =
                 javax.xml.parsers.DocumentBuilderFactory.newInstance();
         dbf.setNamespaceAware(true);
         javax.xml.parsers.DocumentBuilder db = null;
 
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+       // System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
         try {
             db = dbf.newDocumentBuilder();
@@ -54,8 +53,9 @@ public class SignValidate {
             e.printStackTrace();
         }
         try {
-            Document doc =
-                    db.parse(new FileInputStream(fileName));
+          //  Document doc =
+          //          db.parse(new FileInputStream(fileName));
+            Document doc = db.parse(is);
 
             XPathFactory xpf = XPathFactory.newInstance();
             XPath xpath = xpf.newXPath();
@@ -63,9 +63,13 @@ public class SignValidate {
             String expression = "//ds:Signature[1]";
             Element sigElement =
                     (Element) xpath.evaluate(expression, doc, XPathConstants.NODE);
-
+/*
             XMLSignature signature =
                     new XMLSignature(sigElement, (new File(fileName)).toURI().toURL().toString());
+*/
+            XMLSignature signature =
+                    new XMLSignature(sigElement, "");
+
 
             String expressionBody = "//soapenv:Body";
             Element bodyElement =

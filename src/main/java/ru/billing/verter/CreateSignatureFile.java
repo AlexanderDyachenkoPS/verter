@@ -1,14 +1,9 @@
-package ru.billing.draemu;
+package ru.billing.verter;
 
 import java.io.*;
-import java.lang.reflect.Field;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.security.Key;
 import java.security.KeyStore;
 import java.security.cert.X509Certificate;
-import java.util.Base64;
-import javax.naming.spi.Resolver;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Transformer;
@@ -20,16 +15,11 @@ import org.apache.commons.io.IOUtils;
 import org.apache.xml.security.Init;
 import org.apache.xml.security.c14n.Canonicalizer;
 import org.apache.xml.security.signature.XMLSignature;
-import org.apache.xml.security.signature.XMLSignatureInput;
 import org.apache.xml.security.transforms.Transforms;
 import org.apache.xml.security.utils.Constants;
 import org.apache.xml.security.utils.ElementProxy;
-import org.apache.xml.security.utils.IdResolver;
-import org.apache.xml.security.utils.XMLUtils;
 import org.w3c.dom.*;
 
-import static org.apache.xml.security.c14n.Canonicalizer.ALGO_ID_C14N_EXCL_OMIT_COMMENTS;
-import static org.apache.xml.security.c14n.Canonicalizer.ALGO_ID_C14N_OMIT_COMMENTS;
 import static org.apache.xml.security.transforms.Transforms.TRANSFORM_C14N_OMIT_COMMENTS;
 
 
@@ -153,18 +143,20 @@ public class CreateSignatureFile {
 
         header.appendChild(sig.getElement());
 
-        docCanonical.getFirstChild().removeChild(body);
         docCanonical.getFirstChild().appendChild(header);
-        docCanonical.getFirstChild().appendChild(body);
 
 
 
         final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-     //   outputStream.write(Canonicalizer.getInstance(ALGO_ID_C14N_WITH_COMMENTS).canonicalizeSubtree(docCanonical));
+      //  outputStream.write(Canonicalizer.getInstance(ALGO_ID_C14N_WITH_COMMENTS).canonicalizeSubtree(docCanonical));
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         org.apache.xml.security.utils.XMLUtils.outputDOM(docCanonical,baos);
 
         outputStream.write (baos.toByteArray());
+
+
+
+
 
         return outputStream;
     }
