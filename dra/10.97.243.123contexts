@@ -1,0 +1,244 @@
+{
+    "imsi": "250110200124650",
+    "instance": "B1",
+    "noNamespaceSchemaLocation": "subscriber.xsd",
+    "sessions": [
+        {
+            "address": "BC.A2.82.FF",
+            "applicationId": "Gx",
+            "imei": "3566880700978978",
+            "imsi": "250110200124650",
+            "instance": "B1",
+            "mode": "MASTER",
+            "msisdn": "79992407161",
+            "originHost": "gx.vugw01-01.ugw.kvk.epc.mnc011",
+            "originRealm": "ugw.kvk.epc.mnc011.mcc250.3gppnetwork.org",
+            "sessionId": "gx.vugw01-01.ugw.kvk.epc.mnc011;884062366;32702464;131002380",
+            "sessioncontext": {
+                "LUA_ResultCode": 0,
+                "conMachineResultCode": 5,
+                "congestionLevel": 0,
+                "congestionOn": false,
+                "destroySession": false,
+                "diameterContext": {
+                    "gxSessionContext": {
+                        "QoS_Information": {
+                            "APN_AggregateMaxBitrateDL": 300000000,
+                            "APN_AggregateMaxBitrateUL": 300000000
+                        },
+                        "QoS_Information_KeyName": "rqos#max",
+                        "chargingBaseRules": [
+                            {
+                                "ruleName": "pass_vo_up",
+                                "status": 0
+                            }
+                        ],
+                        "createTimestamp": "20181106T094845",
+                        "defaultEPSBearerQoS": {
+                            "QoS_ClassIdentifier": 8,
+                            "allocationRetentionPriority": {
+                                "preEmptionCapability": 1,
+                                "preEmptionVulnerability": 0,
+                                "priorityLevel": 7
+                            }
+                        },
+                        "defaultEPSBearerQoS_KeyName": "def_bearer_Medium_pilot_3G_32",
+                        "gxStoredData": {
+                            "GPP_MSTimeZone": "+03",
+                            "GPP_SGSNAddress": "vKIQSg==",
+                            "GPP_SGSN_MCC_MNC": "25011",
+                            "GPP_UserLocationInfo": {
+                                "sai": {
+                                    "LAC": 2355,
+                                    "MCC": "250",
+                                    "MNC": "02",
+                                    "SAC": 11965
+                                }
+                            },
+                            "IP_CANType": 5,
+                            "QoS_Information": {
+                                "APN_AggregateMaxBitrateDL": 300000000,
+                                "APN_AggregateMaxBitrateUL": 300000000
+                            },
+                            "RAT_Type": 1000,
+                            "calledStationId": "internet.pcrf20",
+                            "defaultEPSBearerQoS": {
+                                "QoS_ClassIdentifier": 7,
+                                "allocationRetentionPriority": {
+                                    "preEmptionCapability": 1,
+                                    "preEmptionVulnerability": 0,
+                                    "priorityLevel": 1
+                                }
+                            },
+                            "framedIPAddress": "vKKC/w==",
+                            "originRealm": "ugw.kvk.epc.mnc011.mcc250.3gppnetwork.org"
+                        },
+                        "pendingActions": {
+                            "eventTimestamp": "20181106T154921",
+                            "requestNumber": 225
+                        },
+                        "sessionMode": 0,
+                        "usageMonitorings": [
+                            {
+                                "monitoringKey": "Nzc3",
+                                "usageMonitoringSupport": 0
+                            }
+                        ]
+                    }
+                },
+                "generateOfflineEDR": false,
+                "isHWMState": false,
+                "partialSession": false,
+                "requestNumber": 225,
+                "requiredMonitoringReport": true,
+                "sendRARequestPacket": false,
+                "sessionMode": 0,
+                "skipDiameterAnswer": false,
+                "statisticContext": {},
+                "udfTemplate": {}
+            }
+        },
+        {
+            "address": "BC.A2.82.FF",
+            "applicationId": "Gx",
+            "imei": "3566880700978978",
+            "imsi": "250110200124650",
+            "instance": "B1",
+            "mode": "MASTER",
+            "msisdn": "79992407161",
+            "originHost": "yota-krd-jsm3",
+            "originRealm": "scartel.dc",
+            "sessionId": "gx_service;1593892913;1214619058;node@yota-krd-jsm3",
+            "sessioncontext": {
+                "LUA_ResultCode": 0,
+                "conMachineResultCode": 5,
+                "congestionLevel": 0,
+                "congestionOn": false,
+                "destroySession": false,
+                "diameterContext": {
+                    "gxSessionContext": {
+                        "chargingRules": [
+                            {
+                                "ruleName": "Tariff/ABC/GoogleMusic",
+                                "status": 0
+                            },
+                            {
+                                "ruleName": "Tariff/ABC/Instagram",
+                                "status": 0
+                            },
+                            {
+                                "ruleName": "Tariff/ABC/AppleMusic",
+                                "status": 0
+                            },
+                            {
+                                "ruleName": "Tariff/ABC/Facebook",
+                                "status": 0
+                            },
+                            {
+                                "ruleName": "Tariff/ABC/Odnoklassniki",
+                                "status": 0
+                            },
+                            {
+                                "ruleName": "Tariff/ABC/Viber",
+                                "status": 0
+                            },
+                            {
+                                "ruleName": "Tariff/ABC/WhatsApp",
+                                "status": 0
+                            },
+                            {
+                                "ruleName": "Tariff/ABC/Youtube",
+                                "status": 0
+                            },
+                            {
+                                "ruleName": "Tariff/ABC/Twitter",
+                                "status": 0
+                            },
+                            {
+                                "ruleName": "Tariff/ABC/AllInternet",
+                                "status": 0
+                            },
+                            {
+                                "ruleName": "Tariff/ABC/YandexMusic",
+                                "status": 0
+                            },
+                            {
+                                "ruleName": "Tariff/ABC/Imo",
+                                "status": 0
+                            },
+                            {
+                                "ruleName": "Tariff/ABC/StreamVideo",
+                                "status": 0
+                            },
+                            {
+                                "ruleName": "Tariff/ABC/Zvook",
+                                "status": 0
+                            },
+                            {
+                                "ruleName": "Tariff/ABC/Skype",
+                                "status": 0
+                            },
+                            {
+                                "ruleName": "Tariff/ABC/SoundCloud",
+                                "status": 0
+                            },
+                            {
+                                "ruleName": "Core/ABC/ABCB",
+                                "status": 0
+                            },
+                            {
+                                "ruleName": "Tariff/ABC/Telegram",
+                                "status": 0
+                            },
+                            {
+                                "ruleName": "Core/Voice/23G/Group1/R2/Phone",
+                                "status": 0
+                            },
+                            {
+                                "ruleName": "RANSharing/KRD/Voice23G/MF",
+                                "status": 0
+                            },
+                            {
+                                "ruleName": "RAN_QOS/23G/Voice/R2",
+                                "status": 0
+                            }
+                        ],
+                        "createTimestamp": "20181106T094845",
+                        "gxStoredData": {
+                            "framedIPAddress": "vKKC/w==",
+                            "originRealm": "scartel.dc"
+                        },
+                        "pendingActions": {
+                            "eventTimestamp": "20181106T154455",
+                            "requestNumber": 64
+                        },
+                        "sessionMode": 0,
+                        "usageMonitorings": [
+                            {
+                                "grantedServiceUnits": [
+                                    {
+                                        "totalOctets": 10485760
+                                    }
+                                ],
+                                "monitoringKey": "c2Vzc2lvbl91c2FnZV9BQkNB",
+                                "usageMonitoringLevel": 1
+                            }
+                        ]
+                    }
+                },
+                "generateOfflineEDR": false,
+                "isHWMState": false,
+                "partialSession": false,
+                "requestNumber": 64,
+                "sendRARequestPacket": false,
+                "sessionMode": 0,
+                "skipDiameterAnswer": false,
+                "statisticContext": {},
+                "udfTemplate": {}
+            }
+        }
+    ],
+    "trace": true,
+    "traceDate": "20181102T081747",
+    "xsi": "http://www.w3.org/2001/XMLSchema-instance"
+}

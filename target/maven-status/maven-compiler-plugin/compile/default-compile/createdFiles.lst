@@ -1,0 +1,6 @@
+ru\billing\draemu\CreateSignatureFile.class
+ru\billing\draemu\VerterMain.class
+ru\billing\draemu\CreateSignature.class
+ru\billing\draemu\DSNamespaceContext.class
+ru\billing\draemu\SignValidate.class
+ru\billing\draemu\XmlSignatureHandler.class
