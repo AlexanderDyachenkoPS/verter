@@ -26,11 +26,17 @@ import org.xml.sax.SAXException;
 
 public class SignValidate {
 
+    VerterParameters verterParameters;
+
+    SignValidate (VerterParameters iverterParameters){
+        this.verterParameters=iverterParameters;
+    }
+    /*
     private static final String PRIVATE_KEY_ALIAS = "nexign.provGW";
     private static final String PRIVATE_KEY_PASS = "provgw";
     private static final String KEY_STORE_PASS = "provgw";
     private static final String KEY_STORE_TYPE = "JKS";
-
+*/
     //
     // Synopsis: java Validate [document]
     //
@@ -131,16 +137,4 @@ public class SignValidate {
 
     }
 
-
-    private static KeyStore loadKeyStore(File privateKeyFile) throws Exception {
-        final InputStream fileInputStream = new FileInputStream(privateKeyFile);
-        try {
-            final KeyStore keyStore = KeyStore.getInstance(KEY_STORE_TYPE);
-            keyStore.load(fileInputStream, KEY_STORE_PASS.toCharArray());
-            return keyStore;
-        }
-        finally {
-            IOUtils.closeQuietly(fileInputStream);
-        }
-    }
 }

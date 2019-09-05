@@ -25,12 +25,7 @@ public class CreateSignature {
     private static final String PRIVATE_KEY_PASS = "provgw";
     private static final String KEY_STORE_PASS = "provgw";
     private static final String KEY_STORE_TYPE = "JKS";
-/*
-    private static final String PRIVATE_KEY_ALIAS = "server-alias";
-    private static final String PRIVATE_KEY_PASS = "changeit";
-    private static final String KEY_STORE_PASS = "changeit";
-    private static final String KEY_STORE_TYPE = "JKS";
-*/
+
     public static void aaa () throws Exception {
         final InputStream fileInputStream = new FileInputStream("c:\\UCELL\\data\\xml");
         try {

@@ -33,7 +33,7 @@ public class HelloHandler extends AbstractHandler
                 sh.sendHTTP(new ByteArrayInputStream (baos.toByteArray()));
             }
             if (target.toString().equals(this.verterParameters.getVALIDATOR_URI())) {
-                SignValidate sv = new SignValidate();
+                SignValidate sv = new SignValidate(this.verterParameters);
                // sv.valSig("c:\\UCELL\\data\\signed-nx1.xml");
                 sv.valSig(request.getInputStream());
             }

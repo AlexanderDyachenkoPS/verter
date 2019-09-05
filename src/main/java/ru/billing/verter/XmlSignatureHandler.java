@@ -58,14 +58,14 @@ import org.apache.xml.security.utils.IdResolver;
 
 public class XmlSignatureHandler {
 
-    private final DocumentBuilderFactory builderFactory;
-    private final TransformerFactory transformerFactory;
-    private final XMLSignatureFactory signatureFactory;
-    private final DigestMethod digestMethod;
-    private final List<Transform> transformList;
-    private final CanonicalizationMethod canonicalizationMethod;
-    private final SignatureMethod signatureMethod;
-    private final KeyInfoFactory keyInfoFactory;
+    private  DocumentBuilderFactory builderFactory;
+    private  TransformerFactory transformerFactory;
+    private  XMLSignatureFactory signatureFactory;
+    private  DigestMethod digestMethod;
+    private  List<Transform> transformList;
+    private  CanonicalizationMethod canonicalizationMethod;
+    private  SignatureMethod signatureMethod;
+    private  KeyInfoFactory keyInfoFactory;
     private VerterParameters verterParameters;
 
     //KeyStore keyStore;
@@ -228,7 +228,7 @@ public class XmlSignatureHandler {
         this.document = this.builderFactory.newDocumentBuilder().parse(file);
     }
 
-    public  void output( String fileName) throws IOException {
+ /*   public  void output( String fileName) throws IOException {
         final OutputStream fileOutputStream = new FileOutputStream(fileName);
         try {
             write(fileOutputStream);
@@ -236,7 +236,7 @@ public class XmlSignatureHandler {
             e.printStackTrace();
         }
 
-    }
+    }*/
 
     public  void outputHTTP(ByteArrayOutputStream iByteArrayOutputStream) throws IOException {
     //    final OutputStream fileOutputStream = response.getOutputStream();
