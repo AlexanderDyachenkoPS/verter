@@ -19,16 +19,17 @@ public class VerterHttpClient{
         this.verterParameters=iverterParameters;
     }
 
-    public  void sendHTTP(InputStream body4post) throws ClientProtocolException, IOException {
+    public  InputStream sendHTTP(InputStream body4post) throws ClientProtocolException, IOException {
         HttpClient client = new DefaultHttpClient();
         HttpPost post = new HttpPost(this.verterParameters.getHLR_URI());
         InputStreamEntity input = new InputStreamEntity(body4post);
         post.setEntity(input);
+        post.setHeader("Content-Type", "text/xml; charset=utf-8");
+        post.setHeader("SOAPAction", "");
+
         HttpResponse response = client.execute(post);
-        BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-        String line = "";
-        while ((line = rd.readLine()) != null) {
-            System.out.println(line);
-        }
+        //BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+        return  response.getEntity().getContent();
+
     }
 }

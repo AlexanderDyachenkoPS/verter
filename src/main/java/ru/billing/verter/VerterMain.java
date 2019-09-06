@@ -44,7 +44,7 @@ public class VerterMain  {
        Server server = new Server(serverPort);
 
 
-        server.setHandler(new HelloHandler(verterParameters));
+        server.setHandler(new IncomingHandler(verterParameters));
 
 
        server.start();

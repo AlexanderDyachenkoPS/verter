@@ -2,7 +2,7 @@ ru\billing\verter\VerterHttpClient.class
 ru\billing\verter\VerterParameters.class
 ru\billing\verter\CreateSignature.class
 ru\billing\verter\CreateSignatureFile.class
-ru\billing\verter\HelloHandler.class
+ru\billing\verter\IncomingHandler.class
 ru\billing\verter\XmlSignatureHandler.class
 ru\billing\verter\DSNamespaceContext.class
 ru\billing\verter\SignValidate.class

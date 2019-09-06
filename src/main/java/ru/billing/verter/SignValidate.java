@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.security.*;
 import java.security.cert.X509Certificate;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
@@ -44,14 +45,13 @@ public class SignValidate {
     //	  to be validated.
     //
 
-    public  void valSig (InputStream is) {
+    public  void valSig (InputStream is, HttpServletResponse response) {
         Init.init();
         javax.xml.parsers.DocumentBuilderFactory dbf =
                 javax.xml.parsers.DocumentBuilderFactory.newInstance();
         dbf.setNamespaceAware(true);
         javax.xml.parsers.DocumentBuilder db = null;
 
-       // System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
         try {
             db = dbf.newDocumentBuilder();
@@ -95,6 +95,8 @@ public class SignValidate {
             if (ki != null) {
                 if (ki.containsX509Data()) {
                     System.out.println("Could find a X509Data element in the KeyInfo");
+                    response.getWriter().println("Could find a X509Data element in the KeyInfo");
+
                 }
                 X509Certificate cert = signature.getKeyInfo().getX509Certificate();
                 if (cert != null) {
@@ -102,6 +104,10 @@ public class SignValidate {
                           //  + f.toURI().toURL().toString() + " is "
                             + (signature.checkSignatureValue(cert)
                             ? "valid (good)"  : "invalid !!!!! (bad)"));
+                            response.getWriter().println("The XML signature in file "
+                                    //  + f.toURI().toURL().toString() + " is "
+                                    + (signature.checkSignatureValue(cert)
+                                    ? "valid (good)"  : "invalid !!!!! (bad)"));
                 } else {
                     System.out.println("Did not find a Certificate");
                     PublicKey pk = signature.getKeyInfo().getPublicKey();
@@ -110,13 +116,20 @@ public class SignValidate {
                                // + f.toURI().toURL().toString() + " is "
                                 + (signature.checkSignatureValue(pk)
                                 ? "valid (good)" : "invalid !!!!! (bad)"));
+                        response.getWriter().println("The XML signature in file "
+                                // + f.toURI().toURL().toString() + " is "
+                                + (signature.checkSignatureValue(pk)
+                                ? "valid (good)" : "invalid !!!!! (bad)"));
                     } else {
                         System.out.println(
                                 "Did not find a public key, so I can't check the signature");
+                        response.getWriter().println("Did not find a public key, so I can't check the signature");
                     }
                 }
             } else {
                 System.out.println("Did not find a KeyInfo");
+                response.getWriter().println("Did not find a KeyInfo");
+
             }
 
 
