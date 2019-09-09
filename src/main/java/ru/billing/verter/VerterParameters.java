@@ -72,6 +72,11 @@ public class VerterParameters {
             keyStore.load(fileInputStream, this.KEY_STORE_PASS.toCharArray());
             return keyStore;
         }
+        catch (Exception e) {
+            logInfoMessage("HA HA HA. I have to go to the dump");
+            logInfoMessage(e.getMessage());
+            return null;
+        }
         finally {
             IOUtils.closeQuietly(fileInputStream);
         }
