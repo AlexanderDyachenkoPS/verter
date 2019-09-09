@@ -1,29 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea2c4758-39ae-48da-8268-6e59e75d3652" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/billing/verter/CreateSignature.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/billing/verter/CreateSignatureFile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/billing/verter/IncomingHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/billing/verter/IncomingHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/billing/verter/SignValidate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/billing/verter/SignValidate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/billing/verter/VerterHttpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/billing/verter/VerterHttpClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/billing/verter/VerterMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/billing/verter/VerterMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/billing/verter/VerterParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/billing/verter/VerterParameters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/billing/verter/XmlSignatureHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/billing/verter/XmlSignatureHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/billing/verter/CreateSignature.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/billing/verter/CreateSignatureFile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/billing/verter/IncomingHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/billing/verter/IncomingHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/billing/verter/SignValidate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/billing/verter/SignValidate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/billing/verter/VerterHttpClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/billing/verter/VerterHttpClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/billing/verter/VerterMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/billing/verter/VerterMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/billing/verter/VerterParameters.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/billing/verter/VerterParameters.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/billing/verter/XmlSignatureHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/billing/verter/XmlSignatureHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/verter-1.0-SNAPSHOT-jar-with-dependencies.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/verter-1.0-SNAPSHOT-jar-with-dependencies.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/verter-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/verter-1.0-SNAPSHOT.jar" afterDir="false" />
-    </list>
+    <list default="true" id="ea2c4758-39ae-48da-8268-6e59e75d3652" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -115,8 +93,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/billing/verter/IncomingHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="884">
-              <caret line="52" selection-start-line="52" selection-end-line="54" selection-end-column="57" />
+            <state relative-caret-position="306">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -163,8 +141,8 @@
       <find>good</find>
       <find>final</find>
       <find>пщщв</find>
-      <find>out.</find>
       <find>stack</find>
+      <find>out.</find>
     </findStrings>
     <dirStrings>
       <dir>C:\UCELL\togithub\src</dir>
@@ -448,7 +426,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1568015223000" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1568015227101" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
@@ -1000,8 +978,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/billing/verter/IncomingHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="52" selection-start-line="52" selection-end-line="54" selection-end-column="57" />
+        <state relative-caret-position="306">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
