@@ -1,25 +1,25 @@
-# verter
+п»ї# verter
 https://www.youtube.com/watch?v=jN6_rO2rYA8
 
-Искусственный идиот 3 поколения.
-С трудом выполняет задачу подписания XML по этой мантре https://www.w3.org/TR/xmldsig-core/
-Еще с большим трудом может проверить подпись.
+РСЃРєСѓСЃСЃС‚РІРµРЅРЅС‹Р№ РёРґРёРѕС‚ 3 РїРѕРєРѕР»РµРЅРёСЏ.
+РЎ С‚СЂСѓРґРѕРј РІС‹РїРѕР»РЅСЏРµС‚ Р·Р°РґР°С‡Сѓ РїРѕРґРїРёСЃР°РЅРёСЏ XML РїРѕ СЌС‚РѕР№ РјР°РЅС‚СЂРµ https://www.w3.org/TR/xmldsig-core/
+Р•С‰Рµ СЃ Р±РѕР»СЊС€РёРј С‚СЂСѓРґРѕРј РјРѕР¶РµС‚ РїСЂРѕРІРµСЂРёС‚СЊ РїРѕРґРїРёСЃСЊ.
 
-!!! ОБЯЗАТЕЛЬНЫЕ ВВОДНЫЕ И ОГРАНИЧЕНИЯ !!!
+!!! РћР‘РЇР—РђРўР•Р›Р¬РќР«Р• Р’Р’РћР”РќР«Р• Р РћР“Р РђРќРР§Р•РќРРЇ !!!
 
-Работает только с запросами вида
+Р Р°Р±РѕС‚Р°РµС‚ С‚РѕР»СЊРєРѕ СЃ Р·Р°РїСЂРѕСЃР°РјРё РІРёРґР°
 
 =====================================================
 <?xml version="1.0" encoding="UTF-8"?>
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body Id="Body">
-	... само тело ...
+	... СЃР°РјРѕ С‚РµР»Рѕ ...
 </soapenv:Body></soapenv:Envelope>
 =====================================================
 
-Обязательно ДОЛЖЕН БЫТЬ атрибут Id="Body" внутри soapenv:Body. Подписывается только этот элемент
-Для ключей поддерживается только формат JKS - на входе должен быть 1 файл
-Все параметры подписания захардкожены - вид SigndeInfo следующий
-Элемент Signature всегда будет находится внутри элемента soapenv:Header
+РћР±СЏР·Р°С‚РµР»СЊРЅРѕ Р”РћР›Р–Р•Рќ Р‘Р«РўР¬ Р°С‚СЂРёР±СѓС‚ Id="Body" РІРЅСѓС‚СЂРё soapenv:Body. РџРѕРґРїРёСЃС‹РІР°РµС‚СЃСЏ С‚РѕР»СЊРєРѕ СЌС‚РѕС‚ СЌР»РµРјРµРЅС‚
+Р”Р»СЏ РєР»СЋС‡РµР№ РїРѕРґРґРµСЂР¶РёРІР°РµС‚СЃСЏ С‚РѕР»СЊРєРѕ С„РѕСЂРјР°С‚ JKS - РЅР° РІС…РѕРґРµ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ 1 С„Р°Р№Р»
+Р’СЃРµ РїР°СЂР°РјРµС‚СЂС‹ РїРѕРґРїРёСЃР°РЅРёСЏ Р·Р°С…Р°СЂРґРєРѕР¶РµРЅС‹ - РІРёРґ SigndeInfo СЃР»РµРґСѓСЋС‰РёР№
+Р­Р»РµРјРµРЅС‚ Signature РІСЃРµРіРґР° Р±СѓРґРµС‚ РЅР°С…РѕРґРёС‚СЃСЏ РІРЅСѓС‚СЂРё СЌР»РµРјРµРЅС‚Р° soapenv:Header
 ===================================================== 
 			<ds:SignedInfo>
 				<ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
@@ -35,11 +35,11 @@ https://www.youtube.com/watch?v=jN6_rO2rYA8
 			</ds:SignedInfo>
 =====================================================
 
-Запуск. Параметры
+Р—Р°РїСѓСЃРє. РџР°СЂР°РјРµС‚СЂС‹
 
-start java -jar verter-1.0-SNAPSHOT-jar-with-dependencies.jar <путь к файлу ключей> <PRIVATE KEY ALIAS> <PRIVATE KEY PASS> <KEY STORE PASS> <KEY STORE TYPE> <LISTEN PORT> <VALIDATOR URI> <iSIGNER URI> <HLR URI>
+start java -jar verter-1.0-SNAPSHOT-jar-with-dependencies.jar <РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ РєР»СЋС‡РµР№> <PRIVATE KEY ALIAS> <PRIVATE KEY PASS> <KEY STORE PASS> <KEY STORE TYPE> <LISTEN PORT> <VALIDATOR URI> <iSIGNER URI> <HLR URI>
 
-Пример 
+РџСЂРёРјРµСЂ 
 start java -jar verter-1.0-SNAPSHOT-jar-with-dependencies.jar c:\UCELL\data\private_key.keystore AAA BBB CCC JKS 19999 /VALIDATE /SIGN http://localhost:19999/VALIDATE 
 
 
