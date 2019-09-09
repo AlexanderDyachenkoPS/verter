@@ -20,6 +20,7 @@ import org.apache.xml.security.keys.KeyInfo;
 import org.apache.xml.security.signature.XMLSignature;
 import org.apache.xml.security.signature.XMLSignatureException;
 import org.apache.xml.security.utils.IdResolver;
+import org.slf4j.Logger;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -28,24 +29,21 @@ import org.xml.sax.SAXException;
 public class SignValidate {
 
     VerterParameters verterParameters;
+    private Logger logger;
+    private String          logPrefix = "Signature Validator: ";
 
-    SignValidate (VerterParameters iverterParameters){
+
+    SignValidate (VerterParameters iverterParameters,Logger ilogger){
         this.verterParameters=iverterParameters;
+        this.logger = ilogger;
     }
-    /*
-    private static final String PRIVATE_KEY_ALIAS = "nexign.provGW";
-    private static final String PRIVATE_KEY_PASS = "provgw";
-    private static final String KEY_STORE_PASS = "provgw";
-    private static final String KEY_STORE_TYPE = "JKS";
-*/
-    //
-    // Synopsis: java Validate [document]
-    //
-    //	  where "document" is the name of a file containing the XML document
-    //	  to be validated.
-    //
 
-    public  void valSig (InputStream is, HttpServletResponse response) {
+    private void logInfoMessage (String msg) {logger.info(logPrefix+msg);}
+
+    private void logDebugMessage (String msg) {logger.debug(logPrefix+msg);}
+
+
+    public  void valSig (InputStream is, HttpServletResponse response) throws IOException {
         Init.init();
         javax.xml.parsers.DocumentBuilderFactory dbf =
                 javax.xml.parsers.DocumentBuilderFactory.newInstance();
@@ -56,11 +54,12 @@ public class SignValidate {
         try {
             db = dbf.newDocumentBuilder();
         } catch (ParserConfigurationException e) {
-            e.printStackTrace();
+            logInfoMessage("HA HA HA. I have to go to the dump");
+            logInfoMessage(e.getMessage());
+            response.getWriter().println(e.getMessage());
         }
         try {
-          //  Document doc =
-          //          db.parse(new FileInputStream(fileName));
+
             Document doc = db.parse(is);
 
             XPathFactory xpf = XPathFactory.newInstance();
@@ -69,11 +68,7 @@ public class SignValidate {
             String expression = "//ds:Signature[1]";
             Element sigElement =
                     (Element) xpath.evaluate(expression, doc, XPathConstants.NODE);
-/*
-            XMLSignature signature =
-                    new XMLSignature(sigElement, (new File(fileName)).toURI().toURL().toString());
-*/
-            XMLSignature signature =
+        XMLSignature signature =
                     new XMLSignature(sigElement, "");
 
 
@@ -83,69 +78,74 @@ public class SignValidate {
 
             Attr id = bodyElement.getAttributeNode("Id") ;
             IdResolver.registerElementById(bodyElement,id);
-            //signature.addResourceResolver(new OfflineResolver());
+
 
             KeyInfo ki = signature.getKeyInfo();
-            System.out.println("================================signature.getSignatureValue()================================");
+            logInfoMessage("================================signature.getSignatureValue()================================");
 
             String svStr = new String(signature.getSignatureValue());
-            System.out.println(svStr);
-            System.out.println("================================signature.getSignatureValue()================================");
+            logInfoMessage(svStr);
+            logInfoMessage("================================signature.getSignatureValue()================================");
 
             if (ki != null) {
                 if (ki.containsX509Data()) {
-                    System.out.println("Could find a X509Data element in the KeyInfo");
+                    logInfoMessage("Could find a X509Data element in the KeyInfo");
                     response.getWriter().println("Could find a X509Data element in the KeyInfo");
 
                 }
                 X509Certificate cert = signature.getKeyInfo().getX509Certificate();
                 if (cert != null) {
-                    System.out.println("The XML signature in file "
-                          //  + f.toURI().toURL().toString() + " is "
+                    logInfoMessage("The XML signature in file "
+
                             + (signature.checkSignatureValue(cert)
                             ? "valid (good)"  : "invalid !!!!! (bad)"));
                             response.getWriter().println("The XML signature in file "
-                                    //  + f.toURI().toURL().toString() + " is "
+
                                     + (signature.checkSignatureValue(cert)
                                     ? "valid (good)"  : "invalid !!!!! (bad)"));
                 } else {
-                    System.out.println("Did not find a Certificate");
+                    logInfoMessage("Did not find a Certificate");
                     PublicKey pk = signature.getKeyInfo().getPublicKey();
                     if (pk != null) {
-                        System.out.println("The XML signature in file "
-                               // + f.toURI().toURL().toString() + " is "
+                        logInfoMessage("The XML signature in file "
+
                                 + (signature.checkSignatureValue(pk)
                                 ? "valid (good)" : "invalid !!!!! (bad)"));
                         response.getWriter().println("The XML signature in file "
-                                // + f.toURI().toURL().toString() + " is "
+
                                 + (signature.checkSignatureValue(pk)
                                 ? "valid (good)" : "invalid !!!!! (bad)"));
                     } else {
-                        System.out.println(
+                        logInfoMessage(
                                 "Did not find a public key, so I can't check the signature");
                         response.getWriter().println("Did not find a public key, so I can't check the signature");
                     }
                 }
             } else {
-                System.out.println("Did not find a KeyInfo");
+                logInfoMessage("Did not find a KeyInfo");
                 response.getWriter().println("Did not find a KeyInfo");
 
             }
-
-
-
-
-
         } catch (SAXException e) {
-            e.printStackTrace();
+            logInfoMessage("HA HA HA. I have to go to the dump");
+            logInfoMessage(e.getMessage());
+            response.getWriter().println(e.getMessage());
         } catch (IOException e) {
-            e.printStackTrace();
+            logInfoMessage("HA HA HA. I have to go to the dump");
+            logInfoMessage(e.getMessage());
+            response.getWriter().println(e.getMessage());
         } catch (XPathExpressionException e) {
-            e.printStackTrace();
+            logInfoMessage("HA HA HA. I have to go to the dump");
+            logInfoMessage(e.getMessage());
+            response.getWriter().println(e.getMessage());
         } catch (XMLSignatureException e) {
-            e.printStackTrace();
+            logInfoMessage("HA HA HA. I have to go to the dump");
+            logInfoMessage(e.getMessage());
+            response.getWriter().println(e.getMessage());
         } catch (XMLSecurityException e) {
-            e.printStackTrace();
+            logInfoMessage("HA HA HA. I have to go to the dump");
+            logInfoMessage(e.getMessage());
+            response.getWriter().println(e.getMessage());
         }
 
     }

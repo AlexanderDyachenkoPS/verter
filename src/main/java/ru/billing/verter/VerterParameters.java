@@ -1,7 +1,7 @@
 package ru.billing.verter;
 
 import org.apache.commons.io.IOUtils;
-
+import org.slf4j.Logger;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -26,6 +26,8 @@ public class VerterParameters {
     private X509Certificate CERTIFICATE ;
     private PublicKey       PUBLICKEY;
 
+    private Logger          logger;
+    private String          logPrefix = "Params: ";
 
 
     public VerterParameters(     String          iKEYFILE,
@@ -36,7 +38,8 @@ public class VerterParameters {
                                  String          iLISTEN_PORT,
                                  String          iVALIDATOR_URI,
                                  String          iSIGNER_URI,
-                                 String          iHLR_URI
+                                 String          iHLR_URI,
+                                 Logger          ilogger
                            ) throws Exception {
         setKEYFILE(iKEYFILE);
         setPRIVATE_KEY_ALIAS(iPRIVATE_KEY_ALIAS);
@@ -47,15 +50,22 @@ public class VerterParameters {
         setVALIDATOR_URI(iVALIDATOR_URI);
         setSIGNER_URI(iSIGNER_URI);
         setHLR_URI(iHLR_URI);
+        this.logger = ilogger;
 
         KEYSTORE    = loadKeyStore(new File(this.KEYFILE));
         PRIVATEKEY  = this.KEYSTORE.getKey(this.PRIVATE_KEY_ALIAS, this.PRIVATE_KEY_PASS.toCharArray());
         CERTIFICATE = (X509Certificate)this.KEYSTORE.getCertificate(this.PRIVATE_KEY_ALIAS);
         PUBLICKEY   = this.CERTIFICATE.getPublicKey();
+        logInfoMessage("All parameters are loaded.");
+
     }
 
+    private void logInfoMessage (String msg) {logger.info(logPrefix+msg);}
+
+    private void logDebugMessage (String msg) {logger.debug(logPrefix+msg);}
 
     private KeyStore loadKeyStore(File privateKeyFile) throws Exception {
+        logInfoMessage("Load RSA keys from "+privateKeyFile.getAbsolutePath());
         final InputStream fileInputStream = new FileInputStream(privateKeyFile);
         try {
             KeyStore keyStore = KeyStore.getInstance(this.KEY_STORE_TYPE);
@@ -154,4 +164,5 @@ public class VerterParameters {
     private void setHLR_URI(String HLR_URI) {
         this.HLR_URI = HLR_URI;
     }
+
 }

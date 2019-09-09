@@ -2,17 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea2c4758-39ae-48da-8268-6e59e75d3652" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/billing/verter/HelloHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/billing/verter/IncomingHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/billing/verter/CreateSignature.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/billing/verter/CreateSignatureFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/billing/verter/IncomingHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/billing/verter/IncomingHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/billing/verter/SignValidate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/billing/verter/SignValidate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/billing/verter/VerterHttpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/billing/verter/VerterHttpClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/billing/verter/VerterMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/billing/verter/VerterMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/billing/verter/HelloHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/billing/verter/VerterParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/billing/verter/VerterParameters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/billing/verter/XmlSignatureHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/billing/verter/XmlSignatureHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ru/billing/verter/CreateSignature.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ru/billing/verter/CreateSignatureFile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ru/billing/verter/IncomingHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/billing/verter/IncomingHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ru/billing/verter/SignValidate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/billing/verter/SignValidate.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ru/billing/verter/VerterHttpClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/billing/verter/VerterHttpClient.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ru/billing/verter/VerterMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/billing/verter/VerterMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ru/billing/verter/VerterParameters.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/billing/verter/VerterParameters.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ru/billing/verter/XmlSignatureHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/billing/verter/XmlSignatureHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/verter-1.0-SNAPSHOT-jar-with-dependencies.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/verter-1.0-SNAPSHOT-jar-with-dependencies.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/verter-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/verter-1.0-SNAPSHOT.jar" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -71,13 +81,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="17" />
-          <entry key="java" value="1323" />
+          <entry key="java" value="1942" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1323" />
+          <entry key="JAVA" value="1942" />
           <entry key="PLAIN_TEXT" value="17" />
           <entry key="XML" value="1" />
         </counts>
@@ -86,7 +96,7 @@
         <counts>
           <entry key="class" value="1" />
           <entry key="iml" value="1" />
-          <entry key="java" value="22" />
+          <entry key="java" value="43" />
           <entry key="xml" value="2" />
         </counts>
       </usages-collector>
@@ -94,7 +104,7 @@
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="22" />
+          <entry key="JAVA" value="43" />
           <entry key="XML" value="2" />
         </counts>
       </usages-collector>
@@ -102,41 +112,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ru/billing/verter/SignValidate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="534">
-              <caret line="139" column="24" selection-start-line="139" selection-start-column="24" selection-end-line="139" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1005#1006#0" expanded="true" />
-                <element signature="e#1060#1061#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/billing/verter/IncomingHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="33" column="54" lean-forward="true" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+            <state relative-caret-position="884">
+              <caret line="52" selection-start-line="52" selection-end-line="54" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ru/billing/verter/VerterHttpClient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="23" column="67" lean-forward="true" selection-start-line="23" selection-start-column="67" selection-end-line="23" selection-end-column="67" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#614#615#0" expanded="true" />
-                <element signature="e#669#670#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -153,7 +135,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>publick</find>
       <find>publicKey</find>
       <find>Collections</find>
       <find>list</find>
@@ -177,12 +158,17 @@
       <find>init</find>
       <find>response</find>
       <find>cFile</find>
-      <find>final</find>
       <find>byte[]</find>
-      <find>пщщв</find>
       <find>byte</find>
       <find>good</find>
+      <find>final</find>
+      <find>пщщв</find>
+      <find>out.</find>
+      <find>stack</find>
     </findStrings>
+    <dirStrings>
+      <dir>C:\UCELL\togithub\src</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -217,14 +203,14 @@
         <option value="$PROJECT_DIR$/src/main/java/ru/billing/draemu/HelloHandler.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/ru/billing/verter/HttpClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/billing/verter/VerterParameters.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/billing/verter/VerterMain.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/billing/verter/XmlSignatureHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/billing/verter/CreateSignature.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/billing/verter/HelloHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/billing/verter/VerterHttpClient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/billing/verter/VerterParameters.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/billing/verter/VerterMain.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/billing/verter/SignValidate.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/billing/verter/IncomingHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/billing/verter/VerterHttpClient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/billing/verter/XmlSignatureHandler.java" />
       </list>
     </option>
   </component>
@@ -351,6 +337,39 @@
             </path>
             <path>
               <item name="togithub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="togithub" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ru" type="462c0819:PsiDirectoryNode" />
+              <item name="billing" type="462c0819:PsiDirectoryNode" />
+              <item name="verter" type="462c0819:PsiDirectoryNode" />
+              <item name="VerterMain" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="togithub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="togithub" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ru" type="462c0819:PsiDirectoryNode" />
+              <item name="billing" type="462c0819:PsiDirectoryNode" />
+              <item name="verter" type="462c0819:PsiDirectoryNode" />
+              <item name="VerterParameters" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="togithub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="togithub" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ru" type="462c0819:PsiDirectoryNode" />
+              <item name="billing" type="462c0819:PsiDirectoryNode" />
+              <item name="verter" type="462c0819:PsiDirectoryNode" />
+              <item name="XmlSignatureHandler" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="togithub" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
             <path>
@@ -429,7 +448,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1567772825344" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1568015223000" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
@@ -595,7 +614,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Nl-Palette" order="0" />
       <window_info id="Capture Tool" order="1" />
@@ -603,14 +621,14 @@
       <window_info id="UI Designer" order="3" />
       <window_info id="Image Layers" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.23081024" />
+      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.124200426" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="2" weight="0.32978722" />
       <window_info anchor="bottom" id="Message" order="3" />
-      <window_info anchor="bottom" id="Find" order="4" />
-      <window_info anchor="bottom" id="Run" order="5" visible="true" weight="0.39148936" />
+      <window_info anchor="bottom" id="Find" order="4" weight="0.32978722" />
+      <window_info active="true" anchor="bottom" id="Run" order="5" visible="true" weight="0.39148936" />
       <window_info anchor="bottom" id="Debug" order="6" weight="0.46276596" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
@@ -618,7 +636,7 @@
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32978722" />
       <window_info anchor="bottom" id="Inspection Results" order="11" weight="0.32978722" />
       <window_info anchor="right" id="Palette" order="0" />
-      <window_info active="true" anchor="right" id="Maven Projects" order="1" visible="true" weight="0.16204691" />
+      <window_info anchor="right" id="Maven Projects" order="1" visible="true" weight="0.16204691" />
       <window_info anchor="right" id="Properties" order="2" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
@@ -884,23 +902,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/billing/verter/DSNamespaceContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="78" selection-start-line="17" selection-start-column="78" selection-end-line="17" selection-end-column="78" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#377#393#0" expanded="true" />
-            <element signature="e#683#684#0" expanded="true" />
-            <element signature="e#728#729#0" expanded="true" />
-            <element signature="e#790#791#0" expanded="true" />
-            <element signature="e#841#842#0" expanded="true" />
-            <element signature="e#1157#1158#0" expanded="true" />
-            <element signature="e#1212#1213#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/verter.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -911,9 +912,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-522">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/billing/verter/CreateSignature.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/billing/verter/CreateSignatureFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
+        <state relative-caret-position="193">
           <caret line="70" column="37" lean-forward="true" selection-start-line="70" selection-start-column="37" selection-end-line="70" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -921,10 +936,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/billing/verter/XmlSignatureHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/billing/verter/DSNamespaceContext.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2692">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
+        <state relative-caret-position="-91">
+          <caret line="6" selection-start-line="6" selection-end-line="8" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -933,109 +948,62 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/billing/verter/VerterParameters.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="38" selection-end-column="57" />
+        <state relative-caret-position="-805">
+          <caret line="52" column="30" lean-forward="true" selection-start-line="52" selection-end-line="53" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#404#405#0" expanded="true" />
-            <element signature="e#434#435#0" expanded="true" />
-            <element signature="e#480#481#0" expanded="true" />
-            <element signature="e#518#519#0" expanded="true" />
-            <element signature="e#562#563#0" expanded="true" />
-            <element signature="e#602#603#0" expanded="true" />
-            <element signature="e#668#669#0" expanded="true" />
-            <element signature="e#726#727#0" expanded="true" />
-            <element signature="e#769#770#0" expanded="true" />
-            <element signature="e#808#809#0" expanded="true" />
-            <element signature="e#872#873#0" expanded="true" />
-            <element signature="e#928#929#0" expanded="true" />
-            <element signature="e#969#970#0" expanded="true" />
-            <element signature="e#1006#1007#0" expanded="true" />
-            <element signature="e#1066#1067#0" expanded="true" />
-            <element signature="e#1118#1119#0" expanded="true" />
-            <element signature="e#1159#1160#0" expanded="true" />
-            <element signature="e#1196#1197#0" expanded="true" />
-            <element signature="e#1256#1257#0" expanded="true" />
-            <element signature="e#1308#1309#0" expanded="true" />
-            <element signature="e#1346#1347#0" expanded="true" />
-            <element signature="e#1380#1381#0" expanded="true" />
-            <element signature="e#1434#1435#0" expanded="true" />
-            <element signature="e#1480#1481#0" expanded="true" />
-            <element signature="e#1520#1521#0" expanded="true" />
-            <element signature="e#1556#1557#0" expanded="true" />
-            <element signature="e#1614#1615#0" expanded="true" />
-            <element signature="e#1664#1665#0" expanded="true" />
-            <element signature="e#1701#1702#0" expanded="true" />
-            <element signature="e#1734#1735#0" expanded="true" />
-            <element signature="e#1786#1787#0" expanded="true" />
-            <element signature="e#1830#1831#0" expanded="true" />
-            <element signature="e#1864#1865#0" expanded="true" />
-            <element signature="e#1894#1895#0" expanded="true" />
-            <element signature="e#4178#4179#0" expanded="true" />
-            <element signature="e#4209#4210#0" expanded="true" />
-            <element signature="e#4243#4244#0" expanded="true" />
-            <element signature="e#4276#4277#0" expanded="true" />
-            <element signature="e#4323#4324#0" expanded="true" />
-            <element signature="e#4357#4358#0" expanded="true" />
-            <element signature="e#4396#4397#0" expanded="true" />
-            <element signature="e#4428#4429#0" expanded="true" />
-            <element signature="e#1940#1941#0" expanded="true" />
-            <element signature="e#1978#1979#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/billing/verter/VerterHttpClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-142">
+          <caret column="26" lean-forward="true" selection-start-column="26" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#614#615#0" expanded="true" />
+            <element signature="e#669#670#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/billing/verter/SignValidate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="145" column="71" selection-start-line="145" selection-start-column="12" selection-end-line="145" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/billing/verter/VerterMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="22" column="2" lean-forward="true" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/billing/verter/CreateSignature.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/billing/verter/SignValidate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="139" column="24" selection-start-line="139" selection-start-column="24" selection-end-line="139" selection-end-column="24" />
+        <state relative-caret-position="459">
+          <caret line="39" column="70" selection-start-line="39" selection-start-column="70" selection-end-line="39" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1005#1006#0" expanded="true" />
-            <element signature="e#1060#1061#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/billing/verter/XmlSignatureHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="190" column="39" lean-forward="true" selection-start-line="190" selection-start-column="29" selection-end-line="190" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/billing/verter/IncomingHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="33" column="54" lean-forward="true" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+        <state relative-caret-position="884">
+          <caret line="52" selection-start-line="52" selection-end-line="54" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-522">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/billing/verter/VerterHttpClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="23" column="67" lean-forward="true" selection-start-line="23" selection-start-column="67" selection-end-line="23" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#614#615#0" expanded="true" />
-            <element signature="e#669#670#0" expanded="true" />
           </folding>
         </state>
       </provider>

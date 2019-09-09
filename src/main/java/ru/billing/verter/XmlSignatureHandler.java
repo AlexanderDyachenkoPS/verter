@@ -2,12 +2,10 @@ package ru.billing.verter;
 
 import java.io.*;
 import java.security.*;
-import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.xml.crypto.MarshalException;
 import javax.xml.crypto.dsig.CanonicalizationMethod;
 import javax.xml.crypto.dsig.DigestMethod;
@@ -33,28 +31,15 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-import org.apache.commons.io.IOUtils;
 import org.apache.xml.security.Init;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Element;
 import org.w3c.dom.Attr;
-
 import org.xml.sax.SAXException;
-
-
 import org.apache.xml.security.utils.IdResolver;
+import org.slf4j.Logger;
 
-
-//import com.eixox.security.X509CertificateKeySelector;
-//import com.eixox.security.X509CertificateWithKey;
-
-/**
- * An XML Signature handler that can sign with x509 certificates xml documents.
- *
- * @author Rodrigo Portela
- *
- */
 
 public class XmlSignatureHandler {
 
@@ -68,18 +53,17 @@ public class XmlSignatureHandler {
     private  KeyInfoFactory keyInfoFactory;
     private VerterParameters verterParameters;
 
-    //KeyStore keyStore;
-    //Key privateKey ;
-    //X509Certificate cert ;
-    //PublicKey publicKey;
+    private Logger          logger;
+    private String          logPrefix = "Signature Builder: ";
 
 
     public Document document;
     public String referenceUri = "#Body";
 
-    public XmlSignatureHandler(VerterParameters iverterParameters) throws Exception {
+    public XmlSignatureHandler(VerterParameters iverterParameters, Logger ilogger) throws Exception {
 
         this.verterParameters=iverterParameters;
+        this.logger = ilogger;
 
 
         Init.init();
@@ -110,6 +94,9 @@ public class XmlSignatureHandler {
 
     }
 
+    private void logInfoMessage (String msg) {logger.info(logPrefix+msg);}
+
+    private void logDebugMessage (String msg) {logger.debug(logPrefix+msg);}
 
     public synchronized void sign()
             throws MarshalException,
@@ -119,7 +106,6 @@ public class XmlSignatureHandler {
         if (this.document == null)
             throw new RuntimeException("Can't sign a NULL document");
 
-        //Element root = docCanonical.getDocumentElement();
         Element header = document.createElementNS("http://schemas.xmlsoap.org/soap/envelope/","soapenv:Header");
         document.getFirstChild().appendChild(header);
 
@@ -127,7 +113,6 @@ public class XmlSignatureHandler {
         if (elList != null && elList.getLength() > 0) {
             Attr id = ((Element)elList.item(0)).getAttributeNode("Id");
             IdResolver.registerElementById((Element)elList.item(0), id);
-            //log.debug("registered id: " + id + " for element: " + (Element)elList.item(0));
         }
         Reference reference = this.signatureFactory.newReference(
                 referenceUri,
@@ -147,8 +132,6 @@ public class XmlSignatureHandler {
         X509Data xd = this.keyInfoFactory.newX509Data(
                 Collections.singletonList(this.verterParameters.getCERTIFICATE()));
 
-
-
         KeyValue keyValue = this.keyInfoFactory.newKeyValue(this.verterParameters.getPUBLICKEY());
 
         List x509list = new ArrayList();
@@ -156,44 +139,30 @@ public class XmlSignatureHandler {
         x509list.add(xd);
         x509list.add(keyValue);
 
-
-    //    KeyInfo keyInfo = this.keyInfoFactory.newKeyInfo(Collections.singletonList(xd));
-
         KeyInfo keyInfo = this.keyInfoFactory.newKeyInfo(x509list);
 
         XMLSignature signature = this.signatureFactory.newXMLSignature(
                 signedInfo,
                 keyInfo);
 
-        System.out.println(signature.getSignedInfo().toString());
-/*
-        DOMSignContext signingContext = new DOMSignContext(
-                this.privateKey,
-                document.getDocumentElement());
-*/
+        logInfoMessage(signature.getSignedInfo().toString());
+
         DOMSignContext signingContext = new DOMSignContext(
                 this.verterParameters.getPRIVATEKEY(),
                 header);
-        //signingContext.putNamespacePrefix(XMLSignature.XMLNS,"ds");
         signingContext.setDefaultNamespacePrefix("ds");
 
 
         signature.sign(signingContext);
 
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-
-
-       // System.out.println((signature.getSignedInfo().getCanonicalizationMethod().getAlgorithm()));
         Reader r = new InputStreamReader(signature.getSignedInfo().getCanonicalizedData());
         StringWriter sw = new StringWriter();
         char[] buffer = new char[1024];
         for (int n; (n = r.read(buffer)) != -1; )
             sw.write(buffer, 0, n);
         String str = sw.toString();
-        System.out.println(str);
+        logInfoMessage(str);
 
-
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     }
 
     public synchronized void write(OutputStream os)
@@ -206,7 +175,6 @@ public class XmlSignatureHandler {
     }
 
 
-
     public void loadDocument(InputStream is)
             throws SAXException,
             IOException,
@@ -214,36 +182,13 @@ public class XmlSignatureHandler {
         this.document = this.builderFactory.newDocumentBuilder().parse(is);
     }
 
-    public void loadDocument(String uri)
-            throws SAXException,
-            IOException,
-            ParserConfigurationException {
-        this.document = this.builderFactory.newDocumentBuilder().parse(uri);
-    }
-
-    public void loadDocument(File file)
-            throws SAXException,
-            IOException,
-            ParserConfigurationException {
-        this.document = this.builderFactory.newDocumentBuilder().parse(file);
-    }
-
- /*   public  void output( String fileName) throws IOException {
-        final OutputStream fileOutputStream = new FileOutputStream(fileName);
-        try {
-            write(fileOutputStream);
-        } catch (TransformerException e) {
-            e.printStackTrace();
-        }
-
-    }*/
 
     public  void outputHTTP(ByteArrayOutputStream iByteArrayOutputStream) throws IOException {
-    //    final OutputStream fileOutputStream = response.getOutputStream();
         try {
             write(iByteArrayOutputStream);
         } catch (TransformerException e) {
-            e.printStackTrace();
+            logInfoMessage("HA HA HA. I have to go to the dump");
+            logInfoMessage(e.getMessage());
         }
 
     }

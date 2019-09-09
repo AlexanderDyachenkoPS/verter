@@ -28,7 +28,6 @@ public class VerterHttpClient{
         post.setHeader("SOAPAction", "");
 
         HttpResponse response = client.execute(post);
-        //BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
         return  response.getEntity().getContent();
 
     }

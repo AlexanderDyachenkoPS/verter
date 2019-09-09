@@ -1,0 +1,2 @@
+start java -XX:+UseParallelGC -Xms512m -Xmx4096m -Dlogback.configurationFile=C:\UCELL\togithub\conf\logback.xml -Dcom.sun.management.jmxremote.port=22990 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -jar verter-1.0-SNAPSHOT-jar-with-dependencies.jar c:\UCELL\data\private_key.keystore nexign.provGW provgw provgw JKS 19999 /VALIDATE /SIGN http://localhost:19999/VALIDATE 
+
